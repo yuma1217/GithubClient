@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1AFBA1285B160500FE4C3C /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1AFBA0285B160500FE4C3C /* RepositoryDetailView.swift */; };
 		9E56F4992859D572003B4945 /* GithubClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56F4982859D572003B4945 /* GithubClientApp.swift */; };
 		9E56F49B2859D572003B4945 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56F49A2859D572003B4945 /* ContentView.swift */; };
 		9E56F49D2859D573003B4945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E56F49C2859D573003B4945 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1AFBA0285B160500FE4C3C /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		9E56F4952859D572003B4945 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E56F4982859D572003B4945 /* GithubClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubClientApp.swift; sourceTree = "<group>"; };
 		9E56F49A2859D572003B4945 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				9E56F49C2859D573003B4945 /* Assets.xcassets */,
 				9E56F49E2859D573003B4945 /* Preview Content */,
 				9E56F4AE285AC17A003B4945 /* UserRowView.swift */,
+				9E1AFBA0285B160500FE4C3C /* RepositoryDetailView.swift */,
 			);
 			path = GithubClient;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				9E56F49B2859D572003B4945 /* ContentView.swift in Sources */,
 				9E56F4A92859D64C003B4945 /* GithubUserViewModel.swift in Sources */,
 				9E9D9C8C285B08C00057AE88 /* RepositoryRowView.swift in Sources */,
+				9E1AFBA1285B160500FE4C3C /* RepositoryDetailView.swift in Sources */,
 				9E56F4AB285A0C70003B4945 /* UserDetailView.swift in Sources */,
 				9E56F4992859D572003B4945 /* GithubClientApp.swift in Sources */,
 			);

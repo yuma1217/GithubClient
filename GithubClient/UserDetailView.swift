@@ -10,6 +10,7 @@ import SwiftUI
 struct UserDetailView: View {
     @StateObject var viewModel : UserDetailViewModel
     var body: some View {
+        
         VStack{
             AsyncImage(url: URL(string: viewModel.user.avatar_url)){
                 image in
@@ -37,12 +38,14 @@ struct UserDetailView: View {
                 Text("情報がありません")
             }
             
-            NavigationView{
-                List(viewModel.repositories){repository in
+           
+            List(viewModel.repositories){repository in
+                NavigationLink{
+                    RepositoryDetailView(url: URL(string: repository.html_url)!)
+                }label: {
                     RepositoryRowView(repository: repository)
-                }.navigationTitle("リポジトリ")
+                }
             }
-            
         }
         .task {
             await viewModel.getUserData()

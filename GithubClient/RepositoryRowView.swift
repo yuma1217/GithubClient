@@ -11,26 +11,41 @@ struct RepositoryRowView: View {
     var repository : Repository
     
     var body: some View {
-        HStack {
-            Text(repository.name)
-            if repository.language != nil{
-                Text(repository.language!)
-            }else{
-                Text("無")
+        VStack(alignment: .leading){
+            // リポジトリ名, star, language
+            HStack {
+                Text(repository.name)
+                    .bold()
+                Spacer()
+                if repository.language != nil{
+                    Text(repository.language!)
+                }else{
+                    Text("無")
+                }
+                HStack(spacing: 0){
+                    Image(systemName: "star")
+                    Text(String(repository.stargazers_count))
+                }
             }
-            Image(systemName: "star.fill")
-            Text(String(repository.stargazers_count))
+            
+            // リポジトリの説明
             if repository.description != nil{
                 Text(repository.description!)
+                    .foregroundColor(.gray)
             }else{
                 Text("説明文なし")
+                    .foregroundColor(.gray)
             }
+
         }
     }
 }
 
 struct RepositoryRowView_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryRowView(repository: testRepository)
+        List{
+            RepositoryRowView(repository: testRepository)
+            RepositoryRowView(repository: testRepository2)
+        }
     }
 }

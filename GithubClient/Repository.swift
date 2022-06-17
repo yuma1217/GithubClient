@@ -18,4 +18,5 @@ struct Repository : Identifiable, Codable{
     var description : String?
 }
 
-var testRepository = Repository(id: 3, name: "test", fork: false, html_url: "https", language: "Go", stargazers_count: 3)
+var testRepository = Repository(id: 3, name: "GithubClient", fork: false, html_url: "https://github.com/yuma1217/GithubClient", language: "Swift", stargazers_count: 0)
+var testRepository2 = Repository(id: 4, name: "matsumura-yu.github.io", fork: false, html_url: "https://github.com/yuma1217/matsumura-yu.github.io", language: "C#", stargazers_count: 0, description: "Webページをホストする")

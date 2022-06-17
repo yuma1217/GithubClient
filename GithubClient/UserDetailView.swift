@@ -58,6 +58,8 @@ struct UserDetailView: View {
                     }
                 }
             }
+            
+            // リポジトリリスト
             List(viewModel.repositories){repository in
                 NavigationLink{
                     RepositoryDetailView(url: URL(string: repository.html_url)!)

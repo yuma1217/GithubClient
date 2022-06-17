@@ -34,10 +34,13 @@ class UserDetailViewModel : ObservableObject{
         do{
             let (data, response) = try await urlSession.data(from: url)
             self.repositories = try JSONDecoder().decode([Repository].self, from: data)
-            print("getRepositoryData")
         }catch{
             debugPrint("getRepositoryData error")
             debugPrint(error)
+        }
+        // forkのものを取り除く
+        self.repositories = self.repositories.filter{
+            $0.fork == false
         }
     }
 }

@@ -12,33 +12,39 @@ struct UserDetailView: View {
     var body: some View {
         
         VStack{
-            AsyncImage(url: URL(string: viewModel.user.avatar_url)){
-                image in
-                image.resizable()
-            } placeholder: {
-                Text("test")
-            }
-            Text("userName: " + viewModel.user.login)
-            if viewModel.user.name != nil{
-                Text(viewModel.user.name!)
-            }else{
-                Text("名前がありません")
-            }
-            
-            if viewModel.user.followers != nil && viewModel.user.following != nil{
-                HStack{
-                    Text("フォロワー数：")
-                    Text(String(viewModel.user.followers!))
+            HStack{
+                AsyncImage(url: URL(string: viewModel.user.avatar_url)){
+                    image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 70)
+                        .cornerRadius(4)
+                } placeholder: {
+                    Text("test")
                 }
-                HStack{
-                    Text("フォロイー数：")
-                    Text(String(viewModel.user.following!))
+                VStack(alignment: .leading){
+                    if viewModel.user.name != nil{
+                        Text(viewModel.user.name!)
+                            .bold()
+                    }else{
+                        Text("名前がありません")
+                    }
+                    Text(viewModel.user.login)
                 }
-            }else{
-                Text("情報がありません")
+                if viewModel.user.followers != nil && viewModel.user.following != nil{
+                    HStack{
+                        Text("followers")
+                        Text(String(viewModel.user.followers!))
+                    }
+                    HStack{
+                        Text("following")
+                        Text(String(viewModel.user.following!))
+                    }
+                }else{
+                    Text("情報がありません")
+                }
             }
-            
-           
             List(viewModel.repositories){repository in
                 NavigationLink{
                     RepositoryDetailView(url: URL(string: repository.html_url)!)

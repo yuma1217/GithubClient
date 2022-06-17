@@ -23,4 +23,4 @@ struct GithubUser : Identifiable, Codable{
 
 }
 
-var testUser : GithubUser = GithubUser(id: 3, login: "test", avatar_url: "https://avatars.githubusercontent.com/u/4?v=4", url: "test", repos_url: "https", name: "名前")
+var testUser : GithubUser = GithubUser(id: 3, login: "yuma1217", avatar_url: "https://avatars.githubusercontent.com/u/29217415?v=4", url: "https://api.github.com/users/yuma1217", repos_url: "https://api.github.com/users/yuma1217/repos", name: "yu")

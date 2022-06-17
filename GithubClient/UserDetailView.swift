@@ -9,10 +9,12 @@ import SwiftUI
 
 struct UserDetailView: View {
     @StateObject var viewModel : UserDetailViewModel
+//    var subColor = Color(red: 139.0, green: 148.0, blue: 158.0)
     var body: some View {
         
-        VStack{
+        VStack(alignment: .leading){
             HStack{
+                // アイコン画像
                 AsyncImage(url: URL(string: viewModel.user.avatar_url)){
                     image in
                     image
@@ -21,8 +23,14 @@ struct UserDetailView: View {
                         .frame(height: 70)
                         .cornerRadius(4)
                 } placeholder: {
-                    Text("test")
-                }
+                    Image(systemName: "person")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 70)
+                        
+                }.padding(.leading)
+                
+                // ユーザー名と名前
                 VStack(alignment: .leading){
                     if viewModel.user.name != nil{
                         Text(viewModel.user.name!)
@@ -31,18 +39,23 @@ struct UserDetailView: View {
                         Text("名前がありません")
                     }
                     Text(viewModel.user.login)
-                }
-                if viewModel.user.followers != nil && viewModel.user.following != nil{
-                    HStack{
-                        Text("followers")
-                        Text(String(viewModel.user.followers!))
+                        .foregroundColor(.gray)
+                    
+                    // フォロワー数とフォロイー数
+                    if viewModel.user.followers != nil && viewModel.user.following != nil{
+                        HStack{
+                            Text(String(viewModel.user.followers!))
+                                .bold()
+                            Text("followers")
+                                .foregroundColor(.gray)
+                            Text(String(viewModel.user.following!))
+                                .bold()
+                            Text("following")
+                                .foregroundColor(.gray)
+                        }
+                    }else{
+                        Text("情報がありません")
                     }
-                    HStack{
-                        Text("following")
-                        Text(String(viewModel.user.following!))
-                    }
-                }else{
-                    Text("情報がありません")
                 }
             }
             List(viewModel.repositories){repository in

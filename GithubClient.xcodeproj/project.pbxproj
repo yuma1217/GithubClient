@@ -19,6 +19,8 @@
 		9E56F4AF285AC17A003B4945 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56F4AE285AC17A003B4945 /* UserRowView.swift */; };
 		9E9D9C8A285B06310057AE88 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9D9C89285B06300057AE88 /* Repository.swift */; };
 		9E9D9C8C285B08C00057AE88 /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9D9C8B285B08C00057AE88 /* RepositoryRowView.swift */; };
+		9EF40D17285CB89D004F63B1 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF40D16285CB89D004F63B1 /* SearchUserView.swift */; };
+		9EF40D19285DA579004F63B1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF40D18285DA579004F63B1 /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		9E56F4AE285AC17A003B4945 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		9E9D9C89285B06300057AE88 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		9E9D9C8B285B08C00057AE88 /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
+		9EF40D16285CB89D004F63B1 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
+		9EF40D18285DA579004F63B1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +78,9 @@
 				9E56F4A62859D5A4003B4945 /* GithubUser.swift */,
 				9E9D9C89285B06300057AE88 /* Repository.swift */,
 				9E9D9C8B285B08C00057AE88 /* RepositoryRowView.swift */,
+				9EF40D16285CB89D004F63B1 /* SearchUserView.swift */,
 				9E56F4A82859D64C003B4945 /* GithubUserViewModel.swift */,
+				9EF40D18285DA579004F63B1 /* SearchResult.swift */,
 				9E56F49C2859D573003B4945 /* Assets.xcassets */,
 				9E56F49E2859D573003B4945 /* Preview Content */,
 				9E56F4AE285AC17A003B4945 /* UserRowView.swift */,
@@ -162,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E56F4AF285AC17A003B4945 /* UserRowView.swift in Sources */,
+				9EF40D17285CB89D004F63B1 /* SearchUserView.swift in Sources */,
 				9E56F4AD285A16AF003B4945 /* UserDetailViewModel.swift in Sources */,
 				9E56F4A72859D5A4003B4945 /* GithubUser.swift in Sources */,
 				9E9D9C8A285B06310057AE88 /* Repository.swift in Sources */,
@@ -170,6 +177,7 @@
 				9E9D9C8C285B08C00057AE88 /* RepositoryRowView.swift in Sources */,
 				9E1AFBA1285B160500FE4C3C /* RepositoryDetailView.swift in Sources */,
 				9E56F4AB285A0C70003B4945 /* UserDetailView.swift in Sources */,
+				9EF40D19285DA579004F63B1 /* SearchResult.swift in Sources */,
 				9E56F4992859D572003B4945 /* GithubClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

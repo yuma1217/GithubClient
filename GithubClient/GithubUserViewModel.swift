@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 class GithubUserViewModel : ObservableObject{
     @Published var users : [GithubUser] = []
     
@@ -19,6 +20,24 @@ class GithubUserViewModel : ObservableObject{
             self.users = try JSONDecoder().decode([GithubUser].self, from: data)
 
             print(self.users[0].login)
+        }
+        catch{
+            debugPrint("Error handling \(url)")
+            debugPrint(error)
+        }
+    }
+    
+    func search(searchText : String) async{
+        print("https://api.github.com/search/users?q=\(searchText)+in:login")
+        let url = URL(string: "https://api.github.com/search/users?q=\(searchText)+in:login")!
+        let urlSession = URLSession.shared
+        
+        do{
+            let (data, response) = try await urlSession.data(from: url)
+            var result = try JSONDecoder().decode(SearchResult.self, from: data)
+            if result.total_count > 0{
+                self.users = result.items
+            }
         }
         catch{
             debugPrint("Error handling \(url)")

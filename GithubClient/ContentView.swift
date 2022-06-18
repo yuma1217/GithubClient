@@ -12,23 +12,27 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            List(viewModel.users){user in
-                NavigationLink{
-                    UserDetailView(viewModel: UserDetailViewModel(user: user))
-                }label: {
-//                    Text(user.login)
-                    UserRowView(user: user)
+            VStack(spacing: 0){
+                SearchUserView(viewModel: viewModel)
+                List(viewModel.users){user in
+                    NavigationLink{
+                        UserDetailView(viewModel: UserDetailViewModel(user: user))
+                    }label: {
+    //                    Text(user.login)
+                        UserRowView(user: user)
+                    }
                 }
-            }
-            .navigationTitle("ユーザー一覧")
-            .task {
-                await viewModel.reload()
-            }
-            .refreshable {
-    //            print(viewModel.users)
-    //            print(viewModel.users[0].login)
-    //            print(viewModel.users[1].login)
-                print(viewModel.users.count)
+                .navigationTitle("ユーザーリスト")
+                .navigationBarTitleDisplayMode(.inline)
+//                .task {
+//                    await viewModel.reload()
+//                }
+                .refreshable {
+        //            print(viewModel.users)
+        //            print(viewModel.users[0].login)
+        //            print(viewModel.users[1].login)
+                    print(viewModel.users.count)
+                }
             }
         }
     }

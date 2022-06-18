@@ -36,7 +36,7 @@ struct UserDetailView: View {
                         Text(viewModel.user.name!)
                             .bold()
                     }else{
-                        Text("名前がありません")
+                        Text("未設定")
                     }
                     Text(viewModel.user.login)
                         .foregroundColor(.gray)

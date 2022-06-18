@@ -7,7 +7,6 @@
 
 import Foundation
 struct SearchResult: Codable{
-    var total_count: Int
-//      "incomplete_results": false,
-    var items: [GithubUser]
+    var total_count: Int // 検索結果数
+    var items: [GithubUser] 
 }

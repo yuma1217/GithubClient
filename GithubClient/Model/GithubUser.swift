@@ -10,16 +10,14 @@ struct GithubUser : Identifiable, Codable{
     
     var id : Int
     var login : String // USER名
-    var avatar_url : String
-//    var followers_url : String // GETで叩くとUserのリストが返ってくるのでその数で判定できる
-//    var following_url : String
+    var avatar_url : String // アイコン画像のURL
     var url : String // UserAPIのURLが取得できる
     var repos_url : String
     
     // UserAPIで取得できる情報
     var followers : Int?
     var following : Int?
-    var name : String?
+    var name : String? // フルネーム
 
 }
 

@@ -13,6 +13,7 @@ class UserDetailViewModel : ObservableObject{
         self.user = user
     }
     
+    // ユーザーの詳細情報を取得する
     func getUserData() async {
         let url = URL(string: self.user.url)!
         let urlSession = URLSession.shared
@@ -28,6 +29,7 @@ class UserDetailViewModel : ObservableObject{
         }
     }
     
+    // ユーザーが持っているリポジトリの情報を取得する
     func getRepositoryData() async {
         let url = URL(string: self.user.repos_url)!
         let urlSession = URLSession.shared

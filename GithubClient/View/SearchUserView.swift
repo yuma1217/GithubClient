@@ -32,8 +32,6 @@ struct SearchUserView: View {
             }
         }
         .padding()
-//        .background(Color(.systemGray6))
-//        .padding([.horizontal, .top])
     }
 }
 

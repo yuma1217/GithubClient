@@ -11,6 +11,7 @@ import Foundation
 class GithubUserViewModel : ObservableObject{
     @Published var users : [GithubUser] = []
     
+    // 全ユーザーデータを取得する
     func reload() async {
         let url = URL(string: "https://api.github.com/users")!
         let urlSession = URLSession.shared
@@ -27,8 +28,8 @@ class GithubUserViewModel : ObservableObject{
         }
     }
     
+    // ユーザーの検索を行う
     func search(searchText : String) async{
-        print("https://api.github.com/search/users?q=\(searchText)+in:login")
         let url = URL(string: "https://api.github.com/search/users?q=\(searchText)+in:login")!
         let urlSession = URLSession.shared
         

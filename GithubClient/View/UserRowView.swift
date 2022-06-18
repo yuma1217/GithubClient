@@ -16,7 +16,7 @@ struct UserRowView: View {
                 image in
                 image.resizable()
             } placeholder: {
-                Text("test")
+                Image(systemName: "arrow.triangle.2.circlepath")
             }
                 .frame(width: 50, height: 50)
             Text(user.login)

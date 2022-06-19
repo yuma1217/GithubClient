@@ -19,9 +19,9 @@ class UserDetailViewModel : ObservableObject{
         let urlSession = URLSession.shared
         
         do{
-            let (data, response) = try await urlSession.data(from: url)
+            let (data, _) = try await urlSession.data(from: url)
             self.user = try JSONDecoder().decode(GithubUser.self, from: data)
-            print("getUserData")
+            print("repo: \(self.user.public_repos)")
         }
         catch{
             debugPrint("Error handling \(url)")
@@ -31,18 +31,42 @@ class UserDetailViewModel : ObservableObject{
     
     // ユーザーが持っているリポジトリの情報を取得する
     func getRepositoryData() async {
-        let url = URL(string: self.user.repos_url)!
-        let urlSession = URLSession.shared
-        do{
-            let (data, response) = try await urlSession.data(from: url)
-            self.repositories = try JSONDecoder().decode([Repository].self, from: data)
-        }catch{
-            debugPrint("getRepositoryData error")
-            debugPrint(error)
-        }
-        // forkのものを取り除く
-        self.repositories = self.repositories.filter{
-            $0.fork == false
-        }
+        // リポジトリAPIの仕様
+        // per_page : default 30
+        // page : default 1
+        
+        self.repositories.removeAll()
+        
+        guard var repositoryNum = self.user.public_repos else { fatalError() }
+        
+        var page : Int = 0
+        
+        repeat{
+            page += 1
+            var urlComponents = URLComponents(string: self.user.repos_url)
+            urlComponents?.queryItems = [
+                URLQueryItem(name: "per_page", value: "100"),
+                URLQueryItem(name: "page", value: String(page))
+            ]
+            guard let url = urlComponents?.url else { fatalError() }
+            print(url)
+            let urlSession = URLSession.shared
+            var tmpRepositories : [Repository] = []
+            do{
+                let (data, _) = try await urlSession.data(from: url)
+                tmpRepositories = try JSONDecoder().decode([Repository].self, from: data)
+            }catch{
+                debugPrint("getRepositoryData error")
+                debugPrint(error)
+            }
+            // forkのものを取り除く
+            self.repositories += tmpRepositories.filter{
+                $0.fork == false
+            }
+            
+            repositoryNum -= 100
+        }while(repositoryNum > 0)
+        
+        print(self.repositories.count)
     }
 }

@@ -18,6 +18,7 @@ struct GithubUser : Identifiable, Codable{
     var followers : Int?
     var following : Int?
     var name : String? // フルネーム
+    var public_repos : Int? // リポジトリ数
 
 }
 
